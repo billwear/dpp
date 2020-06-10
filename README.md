@@ -4,16 +4,14 @@
 > dpp - The document preprocessor
   
 #### SYNOPSIS
+> dpp infile conditional
+
+#### DESCRIPTION
+> dpp scans <infile>, looking for cpp **#ifdef** directives.  When it finds one, it compares the conditional for that directive to <conditional> and, if they match, copies all lines between the **#ifdef** and the matching **#endif** to stdout.  Any lines not inside an **#ifdef** are automatically copied to stdout.
   
-A document preprocessor, styled after cpp, that conditionally compiles documents based on preprocessor directives
-(currently #ifdefs).  Written in bash.
+> Any **#ifdef** that does not match the conditional, along with all text contained in that block, is excluded from the output.  All preprocessor directives are also excluded from the output.
 
-dpp scans a specified input file ($1) for any occurence of a cpp #ifdef with conditional $2.  
-
-If $2 is found, that #ifdef'ed text is included in the text output (to stdout).
-
-If any #ifdef is found whose conditional does not match $2, the entire conditional block is excluded from the
-output.  All preprocessor directives are removed from the output as well.
-
-dpp does not process non-directive lines in any way, only includes or excludes them based on the directives.  This
-prevents dpp from distorting or attempting to interpret any mark(up/down) associated with the file's text.
+> dpp does not attempt to parse any of the non-directive lines in the file; they are copied to stdout verbatim unless excluded by a non-matching **#ifdef** directive.
+  
+#### FILES
+> <infile> can be text of any format, containing any markup/markdown desired.  dpp uses the space character to delimit **#ifdef** conditionals.  Only the first non-space-containing string after the **#ifdef** is recognized; any additional characters on the line, after the second space, are ignored.
