@@ -1,6 +1,6 @@
 #!/bin/bash
-choice=$1
-input="./maas-tags-dpp-in"
+choice=$2
+input=$1
 flag=false
 while IFS= read -r line
 do
