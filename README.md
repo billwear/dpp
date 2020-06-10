@@ -4,7 +4,7 @@
 > dpp - The document preprocessor
   
 #### SYNOPSIS
-> dpp infile conditional
+> dpp __infile__ conditional
 
 #### DESCRIPTION
 > dpp scans *infile*, looking for cpp **#ifdef** directives.  When it finds one, it compares the conditional for that directive to <conditional> and, if they match, copies all lines between the **#ifdef** and the matching **#endif** to stdout.  Any lines not inside an **#ifdef** are automatically copied to stdout.
