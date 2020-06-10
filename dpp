@@ -1,0 +1,24 @@
+#!/bin/bash
+choice=$1
+input="./maas-tags-dpp-in"
+flag=false
+while IFS= read -r line
+do
+    if [[ $line == *"#ifdef"* ]]; then
+	IFS=' '
+	read -ra ADDR <<< "$line"
+	conditional="${ADDR[1]}"
+	if [[ $conditional == $choice ]]; then
+	    continue;
+	fi
+	flag=true
+    fi
+    if [[ $line == *"#endif"* ]]; then
+	flag=false
+	continue;
+    fi
+    if [ "$flag" = true ]; then
+	continue;
+    fi
+    echo "$line"
+done < "$input"
