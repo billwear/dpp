@@ -1,9 +1,9 @@
 # dpp (10)
 
-### NAME
+#### NAME
 > dpp - The document preprocessor
   
-## SYNOPSIS
+#### SYNOPSIS
   
 A document preprocessor, styled after cpp, that conditionally compiles documents based on preprocessor directives
 (currently #ifdefs).  Written in bash.
