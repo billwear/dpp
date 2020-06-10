@@ -1,7 +1,7 @@
 # dpp (10)
 
 ### NAME
-        dpp - The document preprocessor
+> dpp - The document preprocessor
   
 ## SYNOPSIS
   
