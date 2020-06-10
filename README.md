@@ -1,7 +1,7 @@
 # dpp (10)
 
-<dt>NAME</dt>
-<dd>dpp - The document preprocessor</dd>
+### NAME
+        dpp - The document preprocessor
   
 ## SYNOPSIS
   
